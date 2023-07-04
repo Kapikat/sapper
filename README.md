@@ -9,4 +9,4 @@ Choose size of your field
 Choose count of mines on it
 
 
-Start game with choosing coordinates every move whil you win or lose
+Start game with choosing coordinates every move while you win or lose
