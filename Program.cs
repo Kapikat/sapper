@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -9,7 +9,7 @@ class Program
 
     {
         // Asking user about field size (size > 3)
-        Console.WriteLine("Enter the field size:"); 
+        Console.WriteLine("Enter the field size (more than 3, less then 30):"); 
         int size;
         while (!int.TryParse(Console.ReadLine(), out size) || size < 3 || size > 30)
         {
@@ -44,13 +44,21 @@ class Program
             Console.WriteLine("Enter the coordinates of the cell (row, column):");
             string[] input = Console.ReadLine().Split(',');
             int row, col;
+            int.TryParse(input[0], out row);
+            int.TryParse(input[1], out col);
+            row = row-1;
+            col = col-1;
 
             //Checking that coordinates are correct
-            while (input.Length != 2 || !int.TryParse(input[0], out row) || !int.TryParse(input[1], out col)
-                   || row < 0 || row >= size || col < 0 || col >= size)
+            while (input.Length != 2 || row < 0 || row >= size || col < 0 || col >= size)
             {
                 Console.WriteLine("Invalid input. Enter the coordinates of the cell (row, column):"); 
                 input = Console.ReadLine().Split(',');
+                int.TryParse(input[0], out row);
+                int.TryParse(input[1], out col);
+                row = row - 1;
+                col = col - 1;
+
             }
 
             //checking for a mine on users coordinates
